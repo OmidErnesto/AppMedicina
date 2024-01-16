@@ -1,57 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    >
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
-
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/viewImagenMedicamento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:src="@drawable/image_empty" />
 
         <TextView
             android:id="@+id/viewNombreMedicamento"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/viewImagenMedicamento"
+            android:layout_toEndOf="@id/viewImagenMedicamento"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"/>
 
         <TextView
             android:id="@+id/viewFechaMedicamento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@id/viewNombreMedicamento"
+            android:layout_toEndOf="@id/viewImagenMedicamento"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"/>
 
         <TextView
             android:id="@+id/viewHoraMedicamento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@id/viewFechaMedicamento"
+            android:layout_toEndOf="@id/viewImagenMedicamento"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"/>
 
         <TextView
             android:id="@+id/viewCantidadMedicamento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@id/viewHoraMedicamento"
+            android:layout_toEndOf="@id/viewImagenMedicamento"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"/>
 
         <TextView
             android:id="@+id/viewNotaMedicamento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@id/viewCantidadMedicamento"
+            android:layout_toEndOf="@id/viewImagenMedicamento"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"/>
 
-    </LinearLayout>
-</LinearLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

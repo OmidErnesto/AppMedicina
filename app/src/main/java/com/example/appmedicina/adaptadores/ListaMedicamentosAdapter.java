@@ -35,9 +35,9 @@ public class ListaMedicamentosAdapter extends RecyclerView.Adapter<ListaMedicame
     @Override
     public void onBindViewHolder(@NonNull MedicamentoViewHolder holder, int position) {
         holder.viewNombre.setText(listaMedicamentos.get(position).getNombreMedicamento());
-        holder.viewFecha.setText(listaMedicamentos.get(position).getFechaMedicamento());
-        holder.viewHora.setText(listaMedicamentos.get(position).getHoraMedicamento());
-        holder.viewCantidad.setText(String.valueOf(listaMedicamentos.get(position).getCantidadMedicamento()));
+        holder.viewFecha.setText("Fecha: " + listaMedicamentos.get(position).getFechaMedicamento());
+        holder.viewHora.setText("Hora: " + listaMedicamentos.get(position).getHoraMedicamento());
+        holder.viewCantidad.setText("Cantidad tomada: " + String.valueOf(listaMedicamentos.get(position).getCantidadMedicamento()));
         holder.viewNota.setText(listaMedicamentos.get(position).getNotaMedicamento());
 
         byte[] imagenBytes = listaMedicamentos.get(position).getImageMedicamento();
