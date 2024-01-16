@@ -1,6 +1,7 @@
 package com.example.appmedicina;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.database.sqlite.SQLiteDatabase;
@@ -34,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         tab2 = findViewById(R.id.tabSintomas);
         tab3 = findViewById(R.id.tabFarmacias);
 
-
         pagerAdapter = new PagerController(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
@@ -64,5 +64,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
     }
 }

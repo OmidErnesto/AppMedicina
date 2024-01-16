@@ -2,9 +2,15 @@ package com.example.appmedicina.db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import androidx.annotation.Nullable;
+
+import com.example.appmedicina.Controlador.Medicamentos;
+import com.example.appmedicina.Entidades.E_Medicamentos;
+
+import java.util.ArrayList;
 
 public class DbMedicamentos extends DbHelper{
 
@@ -35,6 +41,38 @@ public class DbMedicamentos extends DbHelper{
             ex.toString();
         }
         return id;
+    }
+
+    public ArrayList<E_Medicamentos> mostrarMedicamentos(){
+
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        ArrayList<E_Medicamentos> listaMedicamentos = new ArrayList<>();
+        E_Medicamentos medicamento = null;
+        Cursor cursorMedicamentos = null;
+
+        cursorMedicamentos = db.rawQuery("SELECT * FROM " + TABLE_MEDICAMENTOS,null);
+
+        if(cursorMedicamentos.moveToFirst()){
+            do{
+                medicamento = new E_Medicamentos();
+                medicamento.setId(cursorMedicamentos.getInt(0));
+                medicamento.setNombreMedicamento(cursorMedicamentos.getString(1));
+                medicamento.setFechaMedicamento(cursorMedicamentos.getString(2));
+                medicamento.setHoraMedicamento(cursorMedicamentos.getString(3));
+                medicamento.setCantidadMedicamento(cursorMedicamentos.getDouble(4));
+                medicamento.setNotaMedicamento(cursorMedicamentos.getString(5));
+                medicamento.setImageMedicamento(cursorMedicamentos.getBlob(6));
+                listaMedicamentos.add(medicamento);
+
+            } while (cursorMedicamentos.moveToNext());
+        }
+
+        cursorMedicamentos.close();
+
+        return listaMedicamentos;
+
     }
 
 }
