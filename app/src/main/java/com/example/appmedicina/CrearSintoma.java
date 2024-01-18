@@ -28,7 +28,7 @@ public class CrearSintoma extends AppCompatActivity {
     Spinner intensidadSpinner;
     ImageView imageViewSintoma;
     Button guardarButton;
-    private static final int PICK_IMAGE_REQUEST = 1;
+
     private Uri imagenPredeterminadaSintoma;
 
     @Override
@@ -94,14 +94,7 @@ public class CrearSintoma extends AppCompatActivity {
         intensidadSpinner.setSelection(0);
         notaEditText.setText("");
     }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            imagenPredeterminadaSintoma = data.getData();
-            imageViewSintoma.setImageURI(imagenPredeterminadaSintoma);
-        }
-    }
+
     public byte[] getBytes(InputStream inputStream) throws IOException {
         ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
         int bufferSize = 1024;
