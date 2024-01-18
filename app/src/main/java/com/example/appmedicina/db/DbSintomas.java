@@ -31,7 +31,7 @@ public class DbSintomas extends DbHelper{
             values.put("nombre", nombre);
             values.put("fecha", fecha);
             values.put("hora", hora);
-            values.put("intencidad", intencidad);
+            values.put("intensidad", intencidad);
             values.put("nota", nota);
             values.put("imagen", imagen);
 

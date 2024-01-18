@@ -41,24 +41,22 @@ public class CrearSintoma extends AppCompatActivity {
         horaEditText = findViewById(R.id.sintomas_textHora);
         notaEditText = findViewById(R.id.sintomas_textNota);
         intensidadSpinner = findViewById(R.id.sintomas_spinnerIntensidad);
-        String textoSeleccionado = intensidadSpinner.getSelectedItem().toString();
-
         guardarButton = findViewById(R.id.sintomas_btnGuardar);
-
-
 
         guardarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (imagenPredeterminadaSintoma == null) {
-                    if (textoSeleccionado.equals("Leve")) {
-                        imagenPredeterminadaSintoma = Uri.parse("android.resource://com.example.appmedicina/" + R.drawable.leve);
-                    } else if (textoSeleccionado.equals("Moderado")) {
-                        imagenPredeterminadaSintoma = Uri.parse("android.resource://com.example.appmedicina/" + R.drawable.moderado);
-                    } else {
-                        imagenPredeterminadaSintoma = Uri.parse("android.resource://com.example.appmedicina/" + R.drawable.grave);
-                    }
+
+                String textoSeleccionado = intensidadSpinner.getSelectedItem().toString();
+
+                if (textoSeleccionado.equals("Leve")) {
+                    imagenPredeterminadaSintoma = Uri.parse("android.resource://com.example.appmedicina/" + R.drawable.leve);
+                } else if (textoSeleccionado.equals("Moderado")) {
+                    imagenPredeterminadaSintoma = Uri.parse("android.resource://com.example.appmedicina/" + R.drawable.moderado);
+                } else {
+                    imagenPredeterminadaSintoma = Uri.parse("android.resource://com.example.appmedicina/" + R.drawable.grave);
                 }
+
                 DbSintomas dbSintomas = new DbSintomas(CrearSintoma.this);
                 try {
                     String nombre = nombreEditText.getText().toString();
