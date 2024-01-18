@@ -41,8 +41,10 @@ public class ListaMedicamentosAdapter extends RecyclerView.Adapter<ListaMedicame
         holder.viewNota.setText(listaMedicamentos.get(position).getNotaMedicamento());
 
         byte[] imagenBytes = listaMedicamentos.get(position).getImageMedicamento();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(imagenBytes, 0, imagenBytes.length);
-        holder.viewImagen.setImageBitmap(bitmap);
+        if (imagenBytes != null) {
+            Bitmap bitmap = BitmapFactory.decodeByteArray(imagenBytes, 0, imagenBytes.length);
+            holder.viewImagen.setImageBitmap(bitmap);
+        }
 
     }
 

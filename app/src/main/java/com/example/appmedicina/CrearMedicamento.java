@@ -39,6 +39,7 @@ public class CrearMedicamento extends AppCompatActivity {
         horaEditText = findViewById(R.id.medicamentos_textHora);
         cantidadEditText = findViewById(R.id.medicamentos_textCantidad);
         notaEditText = findViewById(R.id.medicamentos_textNota);
+        imageViewMedicamento = findViewById(R.id.imageViewMedicamento);
 
         seleccionarImagenButton = findViewById(R.id.medicamentos_btnSeleccionarImagen);
         guardarButton = findViewById(R.id.medicamentos_btnGuardar);
@@ -82,7 +83,7 @@ public class CrearMedicamento extends AppCompatActivity {
                 } catch (IOException e){
                     e.printStackTrace();
                 }
-
+                finish();
             }
         });
 

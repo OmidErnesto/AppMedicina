@@ -25,6 +25,7 @@ public class Medicamentos extends Fragment {
 
     RecyclerView listaMedicamentos;
     ArrayList<E_Medicamentos> listaArrayMedicamentos;
+    DbMedicamentos dbMedicamentos;
     public Medicamentos() {
         // Required empty public constructor
     }
@@ -44,7 +45,7 @@ public class Medicamentos extends Fragment {
         listaMedicamentos = view.findViewById(R.id.recyclerViewMedicamentos);
         listaMedicamentos.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        DbMedicamentos dbMedicamentos = new DbMedicamentos(getActivity());
+        dbMedicamentos = new DbMedicamentos(getActivity());
         listaArrayMedicamentos = new ArrayList<>();
 
         ListaMedicamentosAdapter adapter = new ListaMedicamentosAdapter(dbMedicamentos.mostrarMedicamentos());
@@ -60,5 +61,14 @@ public class Medicamentos extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Actualiza la lista de medicamentos
+        ListaMedicamentosAdapter adapter = new ListaMedicamentosAdapter(dbMedicamentos.mostrarMedicamentos());
+        listaMedicamentos.setAdapter(adapter);
     }
 }
