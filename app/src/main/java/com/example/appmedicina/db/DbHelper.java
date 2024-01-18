@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class DbHelper extends SQLiteOpenHelper {
 
-    private static  final int DATABASE_VERSION = 2;
+    private static  final int DATABASE_VERSION = 3;
     private static  final String DATABASE_NOMBRE = "DbAppMedicina.db";
     public static final String TABLE_MEDICAMENTOS = "t_medicamentos";
     public static final String TABLE_SINTOMAS = "t_sintomas";
@@ -35,7 +35,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 "nombre TEXT NOT NULL," +
                 "fecha DATE NOT NULL," +
                 "hora TIME NOT NULL," +
-                "intensidad TEXT CHECK (intensidad IN ('Moderado', 'Leve', 'Grave')) NOT NULL," +
+                "intensidad TEXT NOT NULL," +
                 "nota TEXT," +
                 "imagen BLOB)");
 

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AppMedicina"
         tools:targetApi="34">
         <activity
+            android:name=".CrearSintoma"
+            android:exported="false" />
+        <activity
             android:name=".CrearMedicamento"
             android:exported="false" />
         <activity
