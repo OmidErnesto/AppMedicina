@@ -5,6 +5,7 @@ plugins {
 android {
     namespace = "com.example.appmedicina"
     compileSdk = 34
+    buildFeatures.buildConfig = true
 
     defaultConfig {
         applicationId = "com.example.appmedicina"
@@ -12,6 +13,8 @@ android {
         targetSdk = 31
         versionCode = 1
         versionName = "1.0"
+
+        buildConfigField("String", "GOOGLE_MAPS_API_KEY", "\"${project.findProperty("GoogleMapsApiKey")}\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -39,4 +42,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation("com.google.android.gms:play-services-location:18.0.0")
+
 }
